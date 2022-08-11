@@ -1,28 +1,44 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h2>Todo List</h2>
+      <input type="text" v-model="item" v-on:keydown.enter="onKeyDown" />
+      <button @click="additem">登録</button>
+    <p>{{ $data }}</p>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+//以下のnameの内容がdivタグ内に適用される
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  name: "app",
+  //data型は関数じゃないとエラーが出る
+  data() {
+    return {
+      item: "",
+      todos: [],
+    };
+  },
+  //処理内容
+  methods: {
+    onKeyDown() {
+      // console.log(e.key)
+      this.additem();
+      },
+    additem() {
+      if (this.item == "") {
+        alert("未入力")
+        return;
+      }
+      this.todos.push(this.item);//配列名、Pushの中身は新しく入れる変数など
+      this.item = "";
+    },
+  },
+};
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
+
 </style>
