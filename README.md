@@ -20,5 +20,10 @@ npm run build
 npm run lint
 ```
 
+### moment(日付データフォーマットライブラリ)
+'''
+npm install moment
+'''
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
