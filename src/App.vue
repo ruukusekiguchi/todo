@@ -16,8 +16,11 @@
             <button @click="change()">変更</button>
             <input type="text" v-show="view" v-model="todo.newitem" />
             <input type="date" v-show="view2" v-model="todo.newdate" />
+          </td>
+          <td>
             <button @click="deleteItem(index)">削除</button>
           </td>
+          
         </tr>
       </table>
     </div>
@@ -57,7 +60,7 @@ export default {
       if (this.date == "") {
         this.date = new Date();
         this.date.getFullYear();
-        this.date.getMonth() + 1;
+        this.date.getMonth();
         this.date.getDate();
         return;
       }
