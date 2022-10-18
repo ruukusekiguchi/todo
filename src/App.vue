@@ -3,7 +3,7 @@
     {{ condition }}
     <h2>Todo List</h2>
     <div class="weather">
-      <P>大阪の天気は{{condition.main}}です。</P>
+      <P>大阪の天気は{{ condition.main }}です。</P>
     </div>
     <div id="form">
       <input type="text" v-model="item" v-on:keydown.enter="onKeyDown" />
@@ -55,19 +55,19 @@ export default {
     };
   },
   mounted() {
-      axios
-        .get(this.apiUrl, {
-          params: { q: this.city, APPID: this.apiKey },
-        })
-        .then(
-          function (response) {
-            this.condition = response.data.weather[0];
-          }.bind(this)
-        )
-        .catch(function (error) {
-          alert(error);
-        });
-    },
+    axios
+      .get(this.apiUrl, {
+        params: { q: this.city, APPID: this.apiKey },
+      })
+      .then(
+        function (response) {
+          this.condition = response.data.weather[0];
+        }.bind(this)
+      )
+      .catch(function (error) {
+        alert(error);
+      });
+  },
   //処理内容
   methods: {
     onKeyDown() {
@@ -101,7 +101,6 @@ export default {
       this.view = !this.view;
       this.view2 = !this.view2;
     },
-
   },
 };
 </script>
